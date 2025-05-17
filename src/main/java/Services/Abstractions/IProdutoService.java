@@ -1,4 +1,6 @@
 package Services.Abstractions;
 
-public interface IProdutoService {
+import Entities.ProdutoEntity;
+
+public interface IProdutoService extends  IService<ProdutoEntity> {
 }
