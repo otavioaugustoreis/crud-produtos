@@ -1,10 +1,10 @@
-package Services;
+package com.example.crud_produtos.Services;
 
-import Entities.ProdutoEntity;
-import Repositories.ProdutoRepository;
-import Services.Abstractions.IProdutoService;
+import com.example.crud_produtos.Entities.ProdutoEntity;
+import com.example.crud_produtos.Exceptions.ProdutoException;
+import com.example.crud_produtos.Repositories.ProdutoRepository;
+import com.example.crud_produtos.Services.Abstractions.IProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,8 +22,11 @@ public class ProdutoService implements IProdutoService {
     }
 
     @Override
-    public ProdutoEntity update(Long id, ProdutoEntity entity) {
-        return null;
+    public ProdutoEntity update(Long id, ProdutoEntity entity) throws ProdutoException {
+        ProdutoEntity produto = produtoRepository.findById(id)
+                .orElseThrow(() -> new ProdutoException("Produto não encontrado"));;
+
+        return produtoRepository.save(entity);
     }
 
     @Override

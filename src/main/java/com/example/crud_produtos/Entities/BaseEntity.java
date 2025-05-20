@@ -1,10 +1,11 @@
-package Entities;
+package com.example.crud_produtos.Entities;
 
-import jakarta.persistence.AssociationOverrides;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+
+
+//Anotacao para mapear a superclasse
+@MappedSuperclass
 public class BaseEntity {
 
     @Id
