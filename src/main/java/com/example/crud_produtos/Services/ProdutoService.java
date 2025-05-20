@@ -26,21 +26,26 @@ public class ProdutoService implements IProdutoService {
         ProdutoEntity produto = produtoRepository.findById(id)
                 .orElseThrow(() -> new ProdutoException("Produto não encontrado"));;
 
-        return produtoRepository.save(entity);
+        produto.setDsNome(entity.getDsNome());
+        produto.setNrPreco(entity.getNrPreco());
+        produto.setNrQuantidade(entity.getNrQuantidade());
+
+        return produtoRepository.save(produto);
     }
 
     @Override
-    public void delete(Long id) {
-        var produto = produtoRepository.findById(id).orElse(null);
+    public void delete(Long id) throws ProdutoException {
 
-        if( produto != null){
-            produtoRepository.delete(produto);
-        }
+        ProdutoEntity produto = produtoRepository.findById(id)
+                .orElseThrow(() ->  new ProdutoException("Produto não encontrado"));
+
+        produtoRepository.delete(produto);
     }
 
     @Override
-    public Optional<ProdutoEntity> findById(Long id) {
-        return produtoRepository.findById(id);
+    public ProdutoEntity findById(Long id) throws ProdutoException {
+        return produtoRepository.findById(id)
+                .orElseThrow(() ->  new ProdutoException("Produto não encontrado"));
     }
 
     @Override

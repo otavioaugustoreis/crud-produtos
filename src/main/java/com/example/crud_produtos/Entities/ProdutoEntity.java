@@ -8,15 +8,15 @@ import jakarta.persistence.Table;
 @Table(name = "TB_PRODUTO")
 public class ProdutoEntity extends  BaseEntity{
 
-    private String DsNome;
-    private Integer NrQuantidade;
-    private Double NrPreco;
+    private String dsNome;
+    private Integer nrQuantidade;
+    private Double nrPreco;
     public ProdutoEntity(Long pkId, String dsNome, Integer nrQuantidade, Double nrPreco) {
         super(pkId);
 
-        DsNome = dsNome;
-        NrQuantidade = nrQuantidade;
-        NrPreco = nrPreco;
+        this.dsNome = dsNome;
+        this.nrQuantidade = nrQuantidade;
+        this.nrPreco = nrPreco;
     }
 
     public ProdutoEntity() {
@@ -24,26 +24,26 @@ public class ProdutoEntity extends  BaseEntity{
     }
 
     public String getDsNome() {
-        return DsNome;
+        return dsNome;
     }
 
     public void setDsNome(String dsNome) {
-        DsNome = dsNome;
+        this.dsNome = dsNome;
     }
 
     public Integer getNrQuantidade() {
-        return NrQuantidade;
+        return nrQuantidade;
     }
 
     public void setNrQuantidade(Integer nrQuantidade) {
-        NrQuantidade = nrQuantidade;
+        this.nrQuantidade = nrQuantidade;
     }
 
     public Double getNrPreco() {
-        return NrPreco;
+        return nrPreco;
     }
 
     public void setNrPreco(Double nrPreco) {
-        NrPreco = nrPreco;
+        this.nrPreco = nrPreco;
     }
 }
